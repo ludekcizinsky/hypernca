@@ -62,4 +62,7 @@ For evaluating any of the sequentual conditional models simply run ```cond_model
 
 ## Acknowledgements
 
-We would like to thank to [Ehsan Pajouheshgar](https://pajouheshgar.github.io/) for providing the data and the [nca code](helpers/nca/) which we slightly modified. In addition, we have adopted Ehsan's EDM scheduler and Gram encoder code. Further, the graph [construction code](helpers/gmn/) is taken from [graph meta nets repo](https://github.com/cptq/graph_metanetworks/tree/main/gmn). We have modified it so that also the global feature vector can be used.
+We would like to thank to [Ehsan Pajouheshgar](https://pajouheshgar.github.io/) for providing the data and the [nca code](helpers/nca/) which we slightly modified. In addition, we have adopted Ehsan's EDM scheduler and Gram encoder code. Finally, Ehsan came up with the whole idea of using diffusion models for NCA weight initialization, which we have further developed in this work.
+
+
+The graph [construction code](helpers/gmn/) is taken from [graph meta nets repo](https://github.com/cptq/graph_metanetworks/tree/main/gmn). We have modified it so that also the global feature vector can be used.
