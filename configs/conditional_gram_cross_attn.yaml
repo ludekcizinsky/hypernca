@@ -1,0 +1,63 @@
+defaults:
+  - _self_
+  - texture_encoder: gram
+
+username: 'theilgaa'
+debug: False
+
+seed: 42
+
+logger:
+  project: hypernca
+  entity: ludekcizinsky
+  tags: [cs503, conditional,lr_cosine_schedule]
+
+data:
+  trn_frac: 0.9 #0.9
+  batch_size: 256 #3024
+  num_workers: 8
+  nca_weights_path: /scratch/izar/${username}/hypernca/pretrained_nca/Flickr+DTD_NCA
+
+model:
+  type: 'newest' # 'newest'
+  temb_dim: 256 
+  weight_dim: 96 # assuming mixed tokenization
+  num_weight_tokens: 61 # assuming mixed tokenization
+  hidden_dim: 256 
+  num_layers: 8
+  num_heads: 4
+  lr: 2e-4
+  weight_decay: 0.0
+  warmup_epochs: 10
+  warmup_factor: 0.0
+  conditioning: True
+  cond_dim: 256
+  use_cross_attention: True
+  nca_loss_every_n_steps: 0
+  use_cfg: False
+
+
+
+diffusion:
+  p_mean: -1.2
+  p_std: 1.8
+  sigma_data: 0.5
+  guidance_scale: 5.0 # 1.0 corresponds to no guidance 
+  type: 'EDM' # 'DDIM'
+
+
+trainer:
+  max_epochs: 1000
+  accelerator: gpu
+  devices: 1
+  checkpoint_every_n_epochs: 250
+  grad_clip: 0.0
+  precision: 32
+  log_fid_every_n_epoch: 100
+
+
+hydra:
+  run:
+    dir: /scratch/izar/${username}/outputs/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  job:
+    chdir: False

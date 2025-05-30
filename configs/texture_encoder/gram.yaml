@@ -1,0 +1,3 @@
+_target_: helpers.texture_encoding.GramEncoder
+hidden_size: 512
+normalize: True

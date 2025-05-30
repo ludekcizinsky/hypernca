@@ -1,0 +1,32 @@
+username: 'theilgaa' # Change this to your username
+debug: True # Set to True for debugging purposes
+seed: 2025 # Random seed for reproducibility
+
+logger:
+  project: hypernca
+  entity: ludekcizinsky
+  tags: [nca_training]
+
+
+data:
+  data_path: '/scratch/izar/${username}/hypernca/images/flickr+dtd_128' # Path to the dataset
+  pattern: '' #'bubbly_0101'
+  random_sample: 100 # Number of random samples to use from the dataset
+
+model:
+  use_diffusion_sampled_weights: False # Use diffusion sampled weights if True
+  use_bubbly_weights: False # Use bubbly weights if True
+  diffusion_weights_ckpt: 'ludekcizinsky/hypernca/model-a5yb2dgd:v3' # Checkpoint for diffusion weights
+  bubbly_weights_ckpt: 'ludekcizinsky/hypernca/model-whqs9oys:v0' # Checkpoint for bubbly weights
+  num_steps: 100 # Number of steps for growing texture
+  unconditional: True # currently not used
+
+training:
+  num_epochs: 1000 # Number of epochs for training
+  train_bubbly: False # Train with bubbly weights if True
+
+hydra:
+  run:
+    dir: /scratch/izar/${username}/outputs/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+  job:
+    chdir: False

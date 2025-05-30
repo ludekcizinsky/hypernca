@@ -1,0 +1,23 @@
+-e .
+wandb 
+diffusers
+gdown 
+geomloss
+hydra-core
+torch 
+torchvision 
+scikit-learn 
+tqdm 
+omegaconf 
+matplotlib 
+numpy<1.25
+ipython 
+ipykernel 
+seaborn 
+pandas 
+timm 
+torcheval 
+huggingface-hub
+lightning
+imageio
+transformers

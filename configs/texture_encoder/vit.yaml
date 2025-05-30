@@ -1,0 +1,10 @@
+_target_: helpers.texture_encoding.VisionTransformer
+pretrained: True
+trainable: False
+num_hidden_layers: 3
+patch_size: 16
+hidden_dim: 512
+num_layers: 6
+num_heads: 8
+mlp_dim: 1024
+image_size: 128
